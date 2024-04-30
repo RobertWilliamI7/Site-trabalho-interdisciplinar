@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tudo no Bafo</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function filterProducts() {
+      var searchTerm = document.getElementById("search-input").value.toLowerCase();
+      var articles = document.getElementsByTagName("article");
+
+      for (var i = 0; i < articles.length; i++) {
+        var article = articles[i];
+        var productName = article.getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        if (productName.includes(searchTerm)) {
+          article.style.display = "block";
+        } else {
+          article.style.display = "none";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-container">
+  <a href="https://tudonobafo2.elmolamounier.repl.co">
+    <img src="img/logo.jpg" alt="Logo do CSS" class="logo">
+  </a>
+</div>
+
+      <header>
+  <div class="search-bar">
+    <form onsubmit="event.preventDefault(); filterProducts();">
+      <input type="text" id="search-input" placeholder="Pesquisar" class="search-input">
+      <button type="submit" class="search-button">Buscar</button>
+    </form>
+  </div>
+</header>
+
+
+     <nav>
+  <ul>
+    <li><a href="https://login.elmolamounier.repl.co">Login</a></li>
+    <li><a href="https://cadastro-tudo-no-bafo.elmolamounier.repl.co">Cadastrar</a></li>
+  </ul>
+</nav>
+
+<nav class="header-buttons">
+  <ul class="header-icons">
+    <li><a href="https://frango-1.elmolamounier.repl.co"><img src="img/iphone.png" alt="Ícone Frango" /><span>CELULAR</span></a></li>
+      <li><a href="https://bovinos.elmolamounier.repl.co"><img src="img/carro.png" alt="Ícone Bovinos" /><span>AUTOMOTIVO</span></a></li>
+      <li><a href="https://suino.elmolamounier.repl.co"><img src="img/moveis.png" alt="Ícone Suínos" /><span>MOVEIS</span></a></li>
+      <li><a href="https://opcional.elmolamounier.repl.co"><img src="img/eletrodomestico.png" alt="Ícone Acréscimos" /><span>ELETRODOMESTICO</span></a></li>
+      <li><a href="https://bebidas.elmolamounier.repl.co"><img src="img/livro.png" alt="Ícone Bebidas" /><span>LIVROS</span></a></li>
+    </ul>
+  </ul>
+</nav>
+    </div>
+  </header>
+
+  <section class="catalog">
+    <div class="container">
+      
+
+      <article>
+        <img src="img/p11.jpg" alt="Produto 1">
+        <h3>Box Harry Potter vermelho</h3>
+        <h3 class="preco">R$ 450,00</h3>
+            <button onclick="window.location.href='https://confirma-compra.elmolamounier.repl.co/'">Comprar</button>
+
+      </article>
+
+      <article>
+        <img src="img/p12.jpg" alt="Produto 1">
+        <h3>Box - Trilogia Jogos Vorazes</h3>
+        <h3 class="preco">R$ 280,00</h3>
+      <button onclick="window.location.href='https://confirma-compra.elmolamounier.repl.co/'">Comprar</button>
+
+      </article>
+
+      <article>
+        <img src="img/p13.jpg" alt="Produto 1">
+        <h3>Box Coleção Agatha Christie</h3>
+        <h3 class="preco">R$ 150,00</h3>
+      <button onclick="window.location.href='https://confirma-compra.elmolamounier.repl.co/'">Comprar</button>
+
+      </article>
+
+
+      <article>
+        <img src="img/p18.jpg" alt="Produto 1">
+        <h3>Box A Rainha Vermelha</h3>
+        <h3 class="preco">R$ 200,00</h3>
+       <button onclick="window.location.href='https://confirma-compra.elmolamounier.repl.co/'">Comprar</button>
+
+      </article>
+     
+
+    </div>
+  </section>
+
+  
+</body>
+</html>

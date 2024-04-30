@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra</title>
+    <style>
+      /* Estilos gerais */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+      }
+      .logo {
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20px;
+        margin-left: 10px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+        border: 5px solid #eeff00;
+        filter: drop-shadow(0px 0px 10px #eeff00);
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+      header {
+        background-color: #ff7b00;
+        padding: 20px 0;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-icons li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .header-icons img {
+        width: 55px; /* Reduzir o tamanho do ícone */
+        height: 55px; /* Reduzir o tamanho do ícone */
+      }
+      .header-icons span {
+        display: block;
+        text-align: center;
+        font-size: 14px; /* Tamanho do texto "carne" */
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+        width: 300px;
+      }
+      .search-input {
+        width: 250px;
+        padding: 12px;
+        border: none;
+        border-radius: 20px 0 0 20px;
+      }
+      .search-button {
+        padding: 12px 15px;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        background-color: #eeff00;
+        color: #121212;
+        cursor: pointer;
+      }
+      .search-input::placeholder {
+        color: #999;
+      }
+      .search-input:focus {
+        outline: none;
+      }
+      .search-button:hover {
+        background-color: #eeff00;
+      }
+      /* Estilos do cabeçalho */
+      .saiba-mais {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f57600;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        margin-top: 10px;
+      }
+      .saiba-mais:hover {
+        background-color: #0d0d0d;
+        color: #f57600;
+      }
+      header {
+        background-color: #ff7b00;
+        padding: 20px 0;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+      }
+      header img {
+        display: inline-block;
+        height: 80px;
+        vertical-align: middle;
+      }
+      nav {
+        display: inline-block;
+        float:right;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .header-buttons {
+        text-align: left;
+      }
+      .header-buttons ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      .header-buttons li {
+        display: inline;
+        margin-right: 10px;
+      }
+      .header-buttons a {
+        display: inline-block;
+        padding: 5px;
+        background-color: #ff7b00;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .header-buttons a:hover {
+        background-color: #ddd;
+      }
+      nav li {
+        display: inline-block;
+        margin-left: 20px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: #fbff00;
+        text-decoration: underline;
+      }
+      /* Estilos do cabeçalho */
+      header {
+        background-color: #ff7b00;
+        padding: 20px;
+        text-align: center;
+      }
+      header h1 {
+        color: #fff;
+        margin: 0;
+      }
+      /* Estilos do formulário */
+      form {
+        max-width: 500px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+      }
+      form label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+        font-weight: bold;
+      }
+      form input[type="radio"] {
+        margin-right: 5px;
+      }
+      form input[type="submit"] {
+        background-color: #ff7b00;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      form input[type="submit"]:hover {
+        background-color: #f57600;
+      }
+      /* Estilos para a mensagem de agradecimento */
+      .mensagem {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: orange;
+        color: black;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+    </style>
+    <script>
+      function exibirMensagem() {
+        var entregaElement = document.querySelector('input[name="entrega"]:checked');
+        var mensagemElement = document.createElement("div");
+        mensagemElement.classList.add("mensagem");
+
+        var mensagemTexto = document.createElement("p");
+        if (entregaElement.value === "retirar") {
+          mensagemTexto.innerText = "Obrigado por comprar com a ShopHive, você será redirecionado para o Whatsapp, para finalizar o pedido.";
+        } 
+
+        mensagemElement.appendChild(mensagemTexto);
+        document.body.appendChild(mensagemElement);
+
+        
+      }
+
+      function mostrarDetalhesPagamento() {
+        var pagamentoElement = document.querySelector('input[name="pagamento"]:checked');
+        var detalhesElement = document.getElementById("detalhes-pagamento");
+        detalhesElement.innerHTML = ""; // Limpa o conteúdo existente
+
+        if (pagamentoElement.value === "pix") {
+          var chavePixElement = document.createElement("p");
+          chavePixElement.innerText = "FAVOR ENVIAR O COMPROVANTE NO CAMPO ABAIXO||CHAVE PIX CNPJ: 00.000.000/0001-05";
+
+          var anexarComprovanteElement = document.createElement("input");
+          anexarComprovanteElement.type = "file";
+          anexarComprovanteElement.name = "comprovante";
+          anexarComprovanteElement.accept = "image/*";
+          anexarComprovanteElement.style.marginTop = "10px";
+
+          detalhesElement.appendChild(chavePixElement);
+          detalhesElement.appendChild(anexarComprovanteElement);
+        } else if (pagamentoElement.value === "cartao") {
+          var formularioCartaoElement = document.createElement("form");
+          formularioCartaoElement.id = "formulario-cartao";
+
+          var nomeCartaoElement = document.createElement("input");
+          nomeCartaoElement.type = "text";
+          nomeCartaoElement.name = "nome-cartao";
+          nomeCartaoElement.placeholder = "Nome impresso no cartão";
+
+          var numeroCartaoElement = document.createElement("input");
+          numeroCartaoElement.type = "text";
+          numeroCartaoElement.name = "numero-cartao";
+          numeroCartaoElement.placeholder = "Número do cartão";
+
+          var validadeCartaoElement = document.createElement("input");
+          validadeCartaoElement.type = "text";
+          validadeCartaoElement.name = "validade-cartao";
+          validadeCartaoElement.placeholder = "Validade (MM/AA)";
+
+          var cvvCartaoElement = document.createElement("input");
+          cvvCartaoElement.type = "text";
+          cvvCartaoElement.name = "cvv-cartao";
+          cvvCartaoElement.placeholder = "CVV";
+
+          formularioCartaoElement.appendChild(nomeCartaoElement);
+          formularioCartaoElement.appendChild(numeroCartaoElement);
+          formularioCartaoElement.appendChild(validadeCartaoElement);
+          formularioCartaoElement.appendChild(cvvCartaoElement);
+
+          detalhesElement.appendChild(formularioCartaoElement);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo-container">
+          <a href="https://tudonobafo2.elmolamounier.repl.co">
+            <img src="img/logo.jpg" alt="Logo do CSS" class="logo">
+          </a>
+        </div>
+        <nav class="header-buttons">
+          <ul class="header-icons">
+            <li><a href="https://frango-1.elmolamounier.repl.co"><img src="img/iphone.png" alt="Ícone Frango" /><span>CELULAR</span></a></li>
+            <li><a href="https://bovinos.elmolamounier.repl.co"><img src="img/carro.png" alt="Ícone Bovinos" /><span>AUTOMOTIVO</span></a></li>
+            <li><a href="https://suino.elmolamounier.repl.co"><img src="img/moveis.png" alt="Ícone Suínos" /><span>MOVEIS</span></a></li>
+            <li><a href="https://opcional.elmolamounier.repl.co"><img src="img/eletrodomestico.png" alt="Ícone Acréscimos" /><span>ELETRODOMESTICO</span></a></li>
+            <li><a href="https://bebidas.elmolamounier.repl.co"><img src="img/livro.png" alt="Ícone Bebidas" /><span>LIVROS</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1>CONFIRMAÇÃO DE COMPRA</h1>
+    <form onsubmit="event.preventDefault(); exibirMensagem();">
+      <h2>Forma de pagamento</h2>
+      <label>
+        <input type="radio" name="pagamento" value="pix" onclick="mostrarDetalhesPagamento()"> PIX
+      </label>
+      <label>
+        <input type="radio" name="pagamento" value="cartao" onclick="mostrarDetalhesPagamento()"> Cartão
+      </label>
+      <h2>Entrega</h2>
+      <label>
+        <input type="radio" name="entrega" value="retirar" checked>  FRETE GRÁTIS <span style="color: green; font-size: 12px;">consulte região</span>
+      </label>
+      <h2>Telefone para Contato</h2>
+      <label>
+        <input type="tel" name="telefone" placeholder="Digite seu número de telefone">
+      </label>
+      <h2>Detalhes do Pagamento</h2>
+      <div id="detalhes-pagamento"></div>
+      <input type="submit" value="Confirmar Compra">
+    </form>
+  </body>
+</html>

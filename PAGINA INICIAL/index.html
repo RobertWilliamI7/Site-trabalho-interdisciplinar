@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopHive</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function filterProducts() {
+      var searchTerm = document.getElementById("search-input").value.toLowerCase();
+      var articles = document.getElementsByTagName("article");
+
+      for (var i = 0; i < articles.length; i++) {
+        var article = articles[i];
+        var productName = article.getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        if (productName.includes(searchTerm)) {
+          article.style.display = "block";
+        } else {
+          article.style.display = "none";
+        }
+      }
+    }
+    var carouselIndex = 0;
+    var carouselImages = document.getElementsByClassName("carousel-image");
+
+    function showNextImage() {
+      carouselImages[carouselIndex].classList.remove("active");
+      carouselIndex = (carouselIndex + 1) % carouselImages.length;
+      carouselImages[carouselIndex].classList.add("active");
+    }
+
+    function showPreviousImage() {
+      carouselImages[carouselIndex].classList.remove("active");
+      carouselIndex = (carouselIndex - 1 + carouselImages.length) % carouselImages.length;
+      carouselImages[carouselIndex].classList.add("active");
+    }
+
+    setInterval(showNextImage, 7000);
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-container">
+  <a href="">
+    <img src="img/logo.jpg" alt="Logo do CSS" class="logo">
+  </a>
+</div>
+
+<header>
+  <div class="search-bar">
+    <form onsubmit="event.preventDefault(); filterProducts();">
+      <input type="text" id="search-input" placeholder="Pesquisar" class="search-input">
+      <button type="submit" class="search-button">Buscar</button>
+    </form>
+  </div>
+</header>
+
+
+
+     <nav>
+  <ul>
+    <li><a href="https://lighthearted-pithivier-cad479.netlify.app/">Login</a></li>
+    <li><a href="https://reliable-pothos-8b6771.netlify.app/">Cadastrar</a></li>
+  </ul>
+</nav>
+
+<nav class="header-buttons">
+  <ul class="header-icons">
+    <li><a href="https://playful-sable-16eb47.netlify.app/"><img src="img/iphone.png" alt="Ícone Frango" /><span>CELULAR</span></a></li>
+    <li><a href="https://delicate-brigadeiros-ef2bc1.netlify.app/"><img src="img/carro.png" alt="Ícone Bovinos" /><span>AUTOMOTIVO</span></a></li>
+    <li><a href="https://joyful-cuchufli-0b78b6.netlify.app/"><img src="img/moveis.png" alt="Ícone Suínos" /><span>MOVEIS</span></a></li>
+    <li><a href="https://stupendous-moxie-a8e590.netlify.app/"><img src="img/eletrodomestico.png" alt="Ícone Acréscimos" /><span>ELETRODOMESTICO</span></a></li>
+    <li><a href="https://resplendent-bunny-530d81.netlify.app/"><img src="img/livro.png" alt="Ícone Bebidas" /><span>LIVROS</span></a></li>
+  </ul>
+</nav>
+    </div>
+  </header>
+
+  <section class="carousel">
+    <img src="img/PD1.jpg" alt="Imagem 1" class="carousel-image active">
+    <img src="img/PD1.jpg" alt="Imagem 2" width="300" height="200">
+    <img src="img/PD2.jpg" alt="Imagem 3" class="carousel-image">
+    <img src="img/PD3.jpg" alt="Imagem 4" class="carousel-image">
+    <img src="img/PD2.jpg" alt="Imagem 5" class="carousel-image">
+  </section>
+
+  <div class="carousel-navigation">
+    <button onclick="showPreviousImage()">Anterior</button>
+    <button onclick="showNextImage()">Próximo</button>
+  </div>
+
+
+  
+
+  <section class="catalog">
+    <div class="container">
+      <article>
+        <img src="img/p1.jpg" alt="Produto 1" width="141.732" height="141.732">
+        <h3>Celular Samsung Galaxy A52</h3>
+        <h3 class="preco">R$ 799,99</h3>
+                <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+      </article>
+
+      <article>
+        <img src="img/p2.jpg" alt="Produto 1" width="141.732" height="141.732">
+        <h3>Samsung Galaxy Z Flip5 256GB</h3>
+        <h3 class="preco">R$ 4220,00</h3>
+        
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+      </article>
+
+      <article>
+				<img src="img/p3.jpg" a alt="Produto 1" width="141.732" height="141.732">
+				<h3>Sofá Retrátil 3 Lugares 2,10m Cinza</h3>
+        <h3 class="preco">R$ 1280,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+			</article>
+
+      <article>
+				<img src="img/p4.jpg"  alt="Produto 1" width="141.732" height="141.732">
+				<h3>Mesa gamer ME4152 Preto/Vermelho</h3>
+        <h3 class="preco">R$ 290,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+			</article>
+
+      <article>
+				<img src="img/p5.jpg" alt="Produto 1">
+				<h3>Geladeira 310 Litros</h3>
+        <h3 class="preco">R$ 2500,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+			</article>
+
+      <article>
+				<img src="img/p51.jpg" alt="Produto 1">
+				<h3>Bebedouro Britânia BBE11P Aquaplus</h3>
+        <h3 class="preco">R$ 499,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+			</article>
+
+      <article>
+				<img src="img/p6.jpg" alt="Produto 1">
+				<h3>Multiprocessador All In One Preto Citrus 220 V - PHILCO </h3>
+        <h3 class="preco">R$ 350,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+			</article>
+
+      <article>
+				<img src="img/p61.jpg" alt="Produto 1">
+				<h3>Air Fryer 4L Digital Com Grade</h3>
+        <h3 class="preco">R$ 400,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+
+			</article>
+
+      <article>
+				<img src="img/p7.jpg" alt="Produto 1">
+				<h3>Máquina de lavar louça - 5 programas</h3>
+        <h3 class="preco">R$ 7000,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p71.jpg" alt="Produto 1">
+				<h3>Ar Condicionado Split Philco</h3>
+        <h3 class="preco">R$ 3000,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p10.jpg" alt="Produto 1">
+				<h3>Panela De Pressão Elétrica</h3>
+        <h3 class="preco">R$ 599,90</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p11.jpg" alt="Produto 1">
+				<h3>Box Harry Potter vermelho</h3>
+        <h3 class="preco">R$ 450,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p12.jpg" alt="Produto 1">
+				<h3>Box - Trilogia Jogos Vorazes</h3>
+        <h3 class="preco">R$ 280,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+<article>
+				<img src="img/p13.jpg" alt="Produto 1">
+				<h3>Box Coleção Agatha Christie</h3>
+        <h3 class="preco">R$ 150,00</h3>
+  <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p14.jpg" alt="Produto 1">
+				<h3>Torradeira tostador Electrolux</h3>
+        <h3 class="preco">R$ 300,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p15.jpg" alt="Produto 1">
+				<h3>Aspirador De Pó Robô Wap Robot W100</h3>
+        <h3 class="preco">R$ 740,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p16.jpg" alt="Produto 1">
+				<h3>CABO BATERIA CHUPETA 500A Tramontina</h3>
+        <h3 class="preco">R$ 85,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p17.jpg" alt="Produto 1">
+				<h3>Kit Lavagem Automotiva</h3>
+        <h3 class="preco">R$ 250,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p18.jpg" alt="Produto 1">
+				<h3>Box A Rainha Vermelha</h3>
+        <h3 class="preco">R$ 200,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+      <article>
+				<img src="img/p19.jpg" alt="Produto 1">
+				<h3>Ventilador Turbo 110/127V</h3>
+        <h3 class="preco">R$ 350,00</h3>
+        <button onclick="window.location.href='https://aesthetic-croissant-62c217.netlify.app/'">Comprar</button>
+			</article>
+
+    </div>
+  </section>
+
+<footer>
+  <div class="footer-container">
+    <div class="contact-info">
+      <h4>Developers</h4>
+            <p>Elmo Lamounier Ferreira</p>
+            <p>Robert Willian B. Santos</p>
+
+
+    </div>
+    <div class="payment-methods">
+      <h4>Meios de Pagamento</h4>
+      <div class="card-icons">
+        <img src="img/visa.png" alt="Visa" width="2cm" height="2cm" />
+        <img src="img/mastercard.png" alt="Mastercard" width="2cm" height="2cm" />
+        <img src="img/amex.png" alt="American Express" width="2cm" height="2cm" />
+      </div>
+    </div>
+    <div class="store-locations">
+      <h4>Unidades</h4>
+      <ul>
+        <li>
+          <a href="https://www.google.com/search?client=firefox-b-d&sca_esv=6b1c5e95a3d0b06b&tbs=lf:1,lf_ui:4&tbm=lcl&sxsrf=ACQVn0_mVFTfCSjtnxun8Yv_F0ddqNHBXg:1713466943524&q=PUC+MINAS&rflfq=1&num=10&ved=2ahUKEwiL64LkucyFAxULqJUCHcoqBfsQtgN6BAggEAI#rlfi=hd:;si:;mv:[[-19.852332099999998,-43.902160599999995],[-19.9843686,-44.2152032]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!2m1!1e3!3sIAE,lf:1,lf_ui:4">
+            <p>Unidade Betim</p>
+            <p></p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>

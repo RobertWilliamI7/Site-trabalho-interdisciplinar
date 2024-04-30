@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopHive</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    function filterProducts() {
+      var searchTerm = document.getElementById("search-input").value.toLowerCase();
+      var articles = document.getElementsByTagName("article");
+
+      for (var i = 0; i < articles.length; i++) {
+        var article = articles[i];
+        var productName = article.getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+        if (productName.includes(searchTerm)) {
+          article.style.display = "block";
+        } else {
+          article.style.display = "none";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-container">
+  <a href="https://tudonobafo2.elmolamounier.repl.co">
+    <img src="img/logo.jpg" alt="Logo do CSS" class="logo">
+  </a>
+</div>
+
+      <header>
+  <div class="search-bar">
+    <form onsubmit="event.preventDefault(); filterProducts();">
+      <input type="text" id="search-input" placeholder="Pesquisar" class="search-input">
+      <button type="submit" class="search-button">Buscar</button>
+    </form>
+  </div>
+</header>
+
+
+       <nav>
+        <ul>
+          <li><a href="https://lighthearted-pithivier-cad479.netlify.app/">Login</a></li>
+          <li><a href="https://reliable-pothos-8b6771.netlify.app/">Cadastrar</a></li>
+        </ul>
+      </nav>
+
+      <nav class="header-buttons">
+        <ul class="header-icons">
+          <li><a href="https://frango-1.elmolamounier.repl.co"><img src="img/iphone.png" alt="Ícone Frango" /><span>CELULAR</span></a></li>
+          <li><a href="https://bovinos.elmolamounier.repl.co"><img src="img/carro.png" alt="Ícone Bovinos" /><span>AUTOMOTIVO</span></a></li>
+          <li><a href="https://joyful-cuchufli-0b78b6.netlify.app/"><img src="img/moveis.png" alt="Ícone Suínos" /><span>MOVEIS</span></a></li>
+          <li><a href="https://stupendous-moxie-a8e590.netlify.app/"><img src="img/eletrodomestico.png" alt="Ícone Acréscimos" /><span>ELETRODOMESTICO</span></a></li>
+          <li><a href="https://resplendent-bunny-530d81.netlify.app/"><img src="img/livro.png" alt="Ícone Bebidas" /><span>LIVROS</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="catalog">
+    <div class="container">
+      
+
+      <article>
+        <img src="img/p16.jpg" alt="Produto 1">
+        <h3>CABO BATERIA CHUPETA 500A Tramontina</h3>
+        <h3 class="preco">R$ 85,00</h3>
+      <button onclick="window.location.href='https://confirma-compra.elmolamounier.repl.co/'">Comprar</button>
+
+      </article>
+
+      <article>
+        <img src="img/p17.jpg" alt="Produto 1">
+        <h3>Kit Lavagem Automotiva</h3>
+        <h3 class="preco">R$ 250,00</h3>
+       <button onclick="window.location.href='https://confirma-compra.elmolamounier.repl.co/'">Comprar</button>
+
+      </article>
+     
+    </div>
+  </section>
+
+  
+</body>
+</html>

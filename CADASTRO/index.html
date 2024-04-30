@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro ShopHive</title>
+  <meta charset="utf-8">
+  <style>
+    /* Estilos gerais */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    
+    /* Estilos do cabeçalho */
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fff;
+}
+h1 {
+      text-align: center;
+      
+    }
+.logo {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  margin-left: 10px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  border: 5px solid #eeff00;
+  filter: drop-shadow(0px 0px 10px #eeff00);
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  background-color: #ff7b00;
+  padding: 20px 0;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-icons li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.header-icons img {
+  width: 55px; /* Reduzir o tamanho do ícone */
+  height: 55px; /* Reduzir o tamanho do ícone */
+}
+
+.header-icons span {
+  display: block;
+  text-align: center;
+  font-size: 14px; /* Tamanho do texto "carne" */
+}
+
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+}
+
+.search-input {
+  width: 25
+    0px;
+  padding: 12px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+}
+
+.search-button {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: #eeff00;
+  color: #121212;
+  cursor: pointer;
+}
+    h1{
+  color:#ff7b00;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: #eeff00;
+}
+
+
+/* Estilos do cabeçalho */
+.saiba-mais {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f57600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+.saiba-mais:hover {
+  background-color: #0d0d0d;
+  color: #f57600;
+}
+
+header {
+  background-color: #ff7b00;
+  padding: 20px 0;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  display: inline-block;
+  height: 80px;
+  vertical-align: middle;
+}
+
+
+nav {
+  display: inline-block;
+  float:right;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-buttons {
+  text-align: left;
+}
+
+.header-buttons ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.header-buttons li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.header-buttons a {
+  display: inline-block;
+  padding: 5px;
+  background-color: #ff7b00;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-buttons a:hover {
+  background-color: #ddd;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #fbff00;
+  text-decoration: underline;
+}
+
+    
+    /* Estilos do formulário */
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    
+    form input[type="submit"] {
+      background-color: #ff7b00;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    form input[type="submit"]:hover {
+      background-color: #f57600;
+    }
+    
+    /* Estilos do rodapé */
+    footer {
+      background-color: #ff7b00;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    footer p {
+      color: #fff;
+      margin: 0;
+    }
+  </style>
+  <script>
+    function getEndereco() {
+      var cep = document.getElementById("cep").value;
+      
+      // Simulação do preenchimento automático do endereço
+      var cidade = "Betim";
+      var estado = "MG";
+      var pais = "Brasil";
+      var rua = "Rosario";
+      var numero = "123";
+      var complemento = "Apto 1";
+      
+      // Preenchimento automático dos campos de endereço
+      document.getElementById("cidade").value = cidade;
+      document.getElementById("estado").value = estado;
+      document.getElementById("pais").value = pais;
+      document.getElementById("rua").value = rua;
+      document.getElementById("numero").value = numero;
+      document.getElementById("complemento").value = complemento;
+    }
+    
+    function cadastrar() {
+     
+      
+      alert("Cadastro realizado com sucesso!");
+    }
+  </script>
+</head>
+<body>
+ <header>
+    <div class="container">
+      <div class="logo-container">
+  <a href="">
+    <img src="img/logo.jpg" alt="Logo do CSS" class="logo">
+  </a>
+</div>
+
+     
+
+
+     <nav>
+  <ul>
+    <li><a href="">Login</a></li>
+    <li><a href="">Cadastrar</a></li>
+  </ul>
+</nav>
+
+  <nav class="header-buttons">
+    <ul class="header-icons">
+      <li><a href="https://frango-1.elmolamounier.repl.co"><img src="img/iphone.png" alt="Ícone Frango" /><span>CELULAR</span></a></li>
+      <li><a href="https://bovinos.elmolamounier.repl.co"><img src="img/carro.png" alt="Ícone Bovinos" /><span>AUTOMOTIVO</span></a></li>
+      <li><a href="https://suino.elmolamounier.repl.co"><img src="img/moveis.png" alt="Ícone Suínos" /><span>MOVEIS</span></a></li>
+      <li><a href="https://opcional.elmolamounier.repl.co"><img src="img/eletrodomestico.png" alt="Ícone Acréscimos" /><span>ELETRODOMESTICO</span></a></li>
+      <li><a href="https://resplendent-bunny-530d81.netlify.app/"><img src="img/livro.png" alt="Ícone Bebidas" /><span>LIVROS</span></a></li>
+    </ul>
+  </nav>
+      </div>
+    </header>
+
+  <h1>CADASTRO SHOPHIVE</h1>
+
+  
+<form onsubmit="event.preventDefault(); cadastrar();">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="data-nascimento">Data de Nascimento:</label>
+  <input type="date" id="data-nascimento" name="data-nascimento" required>
+
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" required>
+
+  <label for="confirma-senha">Confirme sua Senha:</label>
+  <input type="password" id="confirma-senha" name="confirma-senha" required>
+
+  <label for="cep">CEP:</label>
+  <input type="text" id="cep" name="cep" required onchange="getEndereco()">
+
+  <label for="cidade">Cidade:</label>
+  <input type="text" id="cidade" name="cidade" required>
+
+  <label for="estado">Estado:</label>
+  <input type="text" id="estado" name="estado" required>
+
+  <label for="pais">País:</label>
+  <input type="text" id="pais" name="pais" required>
+
+  <label for="rua">Rua:</label>
+  <input type="text" id="rua" name="rua" required>
+
+  <label for="numero">Número:</label>
+  <input type="text" id="numero" name="numero" required>
+
+  <label for="complemento">Complemento:</label>
+  <input type="text" id="complemento" name="complemento">
+
+  <input type="submit" value="Cadastrar">
+</form>
+
+
+  <footer>
+    <p>SHOPHIVE - Todos os direitos reservados - Puc Minas Betim 2024</p>
+  </footer>
+</body>
+</html>
+
